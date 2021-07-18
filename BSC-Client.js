@@ -4,6 +4,7 @@ const PRIVATE_KEY_FILE_NAME = process.env.PRIVATE_KEY_FILE || '.private_key'
 const SLEEP_INTERVAL = process.env.SLEEP_INTERVAL || 3000
 const PROJECT_ID = fs.readFileSync(".rpc_id").toString(); // from https://rpc.maticvigil.com/
 const OracleJSON = require('./build/contracts/LowbOracle.json')
+const fetch = require('node-fetch');
 
 
 async function getOracleContract (web3js) {
@@ -40,7 +41,11 @@ async function init () {
       let value = transactions[0].returnValues
       console.log('* New DepositForEvent event. id: ', value.id)
       id++;
-      await maticOracleContract.methods.withdrawTo(value.amount, value.to, value.id).send({ from: ownerAddress, gas: 150000, gasPrice: 5000000000})
+	  let res = await fetch('https://gasstation-mainnet.matic.network')
+      let json = await res.json()
+	  let gasPrice = Math.floor(json.standard*1000000000)
+	  console.log('gas price: ' + gasPrice/1000000000)
+      await maticOracleContract.methods.withdrawTo(value.amount, value.to, value.id).send({ from: ownerAddress, gas: 150000, gasPrice: gasPrice})
       console.log('* Deposit Succeed. id: ' + value.id)
     }
     else {
