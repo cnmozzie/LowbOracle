@@ -26,6 +26,30 @@ Centralized Oracles based on BSC and Matic Chains
 | ERC20PredicateProxy   | 0xdD6596F2029e6233DEFfaCa316e6A95217d4Dc34 | deployed by [matic](https://static.matic.network/network/testnet/mumbai/index.json) |
 | RootChainManagerProxy | 0xBbD7cBFA79faee899Eaf900F13C9065bF03B1A74 | deployed by [matic](https://static.matic.network/network/testnet/mumbai/index.json) |
 
+#### BSC Mainnet
+
+| Contract Name          | Contract Address                           | Note                                                         |
+| ---------------------- | ------------------------------------------ | ------------------------------------------------------------ |
+| ERC20Template | 0x843d4a358471547f51534e3e51fae91cb4dc3f28 | loser coin token                                        |
+|  LowbOracle | 0xDC05ED497f43DE362C7fB112FAFaBBD5EE8B48Bd | lowb PoA bridge |
+
+#### Polygon (Matic)
+
+| Contract Name          | Contract Address                           | Note                                                         |
+| ---------------------- | ------------------------------------------ | ------------------------------------------------------------ |
+| ChildERC20       | 0x1C0a798B5a5273a9e54028eb1524fD337B24145F | loser coin token                                        |
+| ChildChainManagerProxy | 0xA6FA4fB5f76172d178d61B04b0ecd319C5d1C0aa | deployed by [matic](https://static.matic.network/network/testnet/mumbai/index.json) |
+|  LowbOracle | 0xDC05ED497f43DE362C7fB112FAFaBBD5EE8B48Bd | lowb PoA bridge |
+
+#### Ethereum
+
+| Contract Name         | Contract Address                           | Note                                                         |
+| --------------------- | ------------------------------------------ | ------------------------------------------------------------ |
+| ERC20FixedSupply      | 0x69e5C11a7C30f0bf84A9faECBd5161AA7a94decA | test loser coin token                                        |
+| ERC20PredicateProxy   | 0x40ec5B33f54e0E8A33A975908C5BA1c14e5BbbDf | deployed by [matic](https://static.matic.network/network/testnet/mumbai/index.json) |
+| RootChainManagerProxy | 0xA0c68C638235ee32657e8f720a23ceC1bFc77C77 | deployed by [matic](https://static.matic.network/network/testnet/mumbai/index.json) |
+
+
 ### ERC20 Deposit and Withdraw Guide
 
 Depositing ERC20 -
