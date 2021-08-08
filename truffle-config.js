@@ -25,6 +25,7 @@
  const mnemonic = fs.readFileSync(".secret").toString().trim();
  const ETHSCANAPIKEY = fs.readFileSync(".matickey").toString();
  const BSCSCANAPIKEY = fs.readFileSync(".bsckey").toString();
+ const OKLinkPIKEY = fs.readFileSync(".bsckey").toString();
  const PROJECT_ID = fs.readFileSync(".rpc_id").toString(); // from https://rpc.maticvigil.com/
  
  module.exports = {
@@ -43,7 +44,8 @@
    ],
    api_keys: {
      etherscan: ETHSCANAPIKEY,
-     bscscan: BSCSCANAPIKEY
+     bscscan: BSCSCANAPIKEY,
+     OKLink: OKLinkPIKEY
    },
    networks: {
      // Useful for testing. The `development` name is special - truffle uses it by default
@@ -73,7 +75,21 @@
       timeoutBlocks: 200,
       skipDryRun: true
     },
-    testnet: {
+    oec_test: {
+      provider: () => new HDWalletProvider(mnemonic, `https://exchaintestrpc.okex.org`),
+      network_id: 65,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    oec: {
+      provider: () => new HDWalletProvider(mnemonic, `https://exchainrpc.okex.org`),
+      network_id: 66,
+      confirmations: 10,
+      timeoutBlocks: 200,
+      skipDryRun: true
+    },
+    bsc_test: {
       provider: () => new HDWalletProvider(mnemonic, `https://data-seed-prebsc-1-s2.binance.org:8545`),
       network_id: 97,
       confirmations: 10,
